@@ -28,14 +28,19 @@ export function TreeProvider({ children }: { children: ReactNode }) {
     if (!outcome.ok) return outcome;
 
     const loadedAt = new Date();
+    const persisted = writeStoredDocument({
+      json: text,
+      sourceName,
+      loadedAt: loadedAt.toISOString(),
+    });
     setDocument({
       root: outcome.root,
       index: buildTreeIndex(outcome.root),
       warnings: outcome.warnings,
       sourceName,
       loadedAt,
+      persisted,
     });
-    writeStoredDocument({ json: text, sourceName, loadedAt: loadedAt.toISOString() });
 
     // A new document invalidates folders expanded in the previous one.
     setExpandedPaths(new Set());
@@ -96,5 +101,6 @@ function restoreDocument(): LoadedDocument | null {
     warnings: outcome.warnings,
     sourceName: stored.sourceName,
     loadedAt: new Date(stored.loadedAt),
+    persisted: true,
   };
 }

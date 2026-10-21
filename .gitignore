@@ -25,3 +25,6 @@ dist-ssr
 
 # Vitest coverage
 coverage
+
+# Local agent/editor scratch config
+.claude

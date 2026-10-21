@@ -48,8 +48,9 @@ export function readStoredDocument(): StoredDocument | null {
   };
 }
 
-export function writeStoredDocument(document: StoredDocument): void {
-  writeKey(DOCUMENT_KEY, JSON.stringify(document));
+/** Returns false when storage refused the write, e.g. a document over the quota. */
+export function writeStoredDocument(document: StoredDocument): boolean {
+  return writeKey(DOCUMENT_KEY, JSON.stringify(document));
 }
 
 export function clearStoredDocument(): void {
@@ -79,12 +80,14 @@ function readKey(key: string): string | null {
   }
 }
 
-function writeKey(key: string, value: string): void {
+function writeKey(key: string, value: string): boolean {
   try {
     window.sessionStorage.setItem(key, value);
+    return true;
   } catch {
     // Out of quota or storage disabled: the app keeps working for this view,
     // it just will not survive a reload.
+    return false;
   }
 }
 

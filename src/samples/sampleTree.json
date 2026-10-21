@@ -1,0 +1,51 @@
+{
+  "name": "acme-dashboard",
+  "type": "folder",
+  "children": [
+    {
+      "name": "src",
+      "type": "folder",
+      "children": [
+        { "name": "main.tsx", "type": "file", "size": 412 },
+        { "name": "index.css", "type": "file", "size": 2150 },
+        {
+          "name": "components",
+          "type": "folder",
+          "children": [
+            { "name": "Button.tsx", "type": "file", "size": 512 },
+            { "name": "Button.test.tsx", "type": "file", "size": 1340 },
+            {
+              "name": "data table",
+              "type": "folder",
+              "children": [
+                { "name": "DataTable.tsx", "type": "file", "size": 8734 },
+                { "name": "useSorting.ts", "type": "file", "size": 1602 },
+                { "name": "README.md", "type": "file" }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "lib",
+          "type": "folder",
+          "children": [
+            { "name": "http.ts", "type": "file", "size": 3072 },
+            { "name": "format.ts", "type": "file", "size": 904 },
+            { "name": "experimental", "type": "folder", "children": [] }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "public",
+      "type": "folder",
+      "children": [
+        { "name": "favicon.svg", "type": "file", "size": 1536 },
+        { "name": "logo@2x.png", "type": "file", "size": 184320 }
+      ]
+    },
+    { "name": "package.json", "type": "file", "size": 1204 },
+    { "name": "tsconfig.json", "type": "file", "size": 640 },
+    { "name": "README.md", "type": "file", "size": 4096 }
+  ]
+}

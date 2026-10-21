@@ -10,6 +10,8 @@ export interface LoadedDocument {
   readonly warnings: readonly ValidationIssue[];
   readonly sourceName: string;
   readonly loadedAt: Date;
+  /** False when the document was too large for session storage to keep. */
+  readonly persisted: boolean;
 }
 
 export interface TreeDocumentValue {
